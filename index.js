@@ -84,7 +84,7 @@ const Geojson = props => {
             <MapView.Marker
               key={overlay.id}
               coordinate={overlay.coordinates}
-              pinColor={props.color}
+              pinColor={props.geojson.style.fillColor}
             />
           );
         }
