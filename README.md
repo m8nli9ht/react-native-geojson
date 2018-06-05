@@ -20,7 +20,8 @@ const alcatraz = {
       geometry: {
         type: 'Point',
         coordinates: [-122.42305755615234, 37.82687023785448],
-      }
+      },
+      style: {fillColor: '#123456'}
     }
   ]
 };

@@ -94,9 +94,9 @@ const Geojson = props => {
               key={overlay.id}
               coordinates={overlay.coordinates}
               holes={overlay.holes}
-              strokeColor={props.strokeColor}
-              fillColor={props.fillColor}
-              strokeWidth={props.strokeWidth}
+              strokeColor={props.geojson.style.strokeColor}
+              fillColor={props.geojson.style.fillColor}
+              strokeWidth={props.geojson.style.strokeWidth}
             />
           );
         }
@@ -105,8 +105,8 @@ const Geojson = props => {
             <MapView.Polyline
               key={overlay.id}
               coordinates={overlay.coordinates}
-              strokeColor={props.strokeColor}
-              strokeWidth={props.strokeWidth}
+              strokeColor={props.geojson.style.strokeColor}
+              strokeWidth={props.geojson.style.strokeWidth}
             />
           );
         }
