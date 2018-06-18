@@ -79,13 +79,15 @@ const Geojson = props => {
   return (
     <View>
       {overlays.map(overlay => {
-        if (overlay.type === 'point') {
+        if (overlay.type === 'point' && !props.disableMarker) {
           return (
             <MapView.Marker
               key={overlay.id}
               coordinate={overlay.coordinates}
               image={props.image}
-            />
+              style={{ width: 15, height: 15 }}
+              description={props.geojson.features.properties.name} />
+           
           );
         }
         if (overlay.type === 'polygon') {
@@ -105,8 +107,9 @@ const Geojson = props => {
             <MapView.Polyline
               key={overlay.id}
               coordinates={overlay.coordinates}
-              strokeColor={props.geojson.style.strokeColor}
-              strokeWidth={props.geojson.style.strokeWidth}
+              strokeColor={props.geojson.style.fillColor}
+              strokeWidth={props.geojson.style.strokeWidth || 5}
+              description={props.geojson.features.properties.name}
             />
           );
         }
