@@ -48,6 +48,10 @@ const makeOverlay = (coordinates, feature) => {
   } else {
     overlay.coordinates = coordinates;
   }
+
+  overlay.title = (feature.properties.name) ? feature.properties.name : ''; 
+  overlay.description = (feature.properties.description) ? feature.properties.description : ''; 
+
   return overlay;
 };
 
@@ -86,7 +90,9 @@ const Geojson = props => {
               coordinate={overlay.coordinates}
               image={props.image}
               style={{ width: 15, height: 15 }}
-              description={props.geojson.features.properties.name} />
+              title={overlay.title}
+              description={overlay.description} 
+               />
            
           );
         }
@@ -109,7 +115,8 @@ const Geojson = props => {
               coordinates={overlay.coordinates}
               strokeColor={props.geojson.style.fillColor}
               strokeWidth={props.geojson.style.strokeWidth || 5}
-              description={props.geojson.features.properties.name}
+              title={overlay.title}
+              description={overlay.description}
             />
           );
         }
